@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Product Catalog Documentation</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+
+        h1,
+        h2,
+        h3 {
+            color: #2c3e50;
+        }
+
+        .header {
+            background: #34495e;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            color: #fff;
+            margin: 0;
+        }
+
+        .card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #34495e;
+            color: #fff;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        code {
+            background: #eee;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        pre {
+            background: #272822;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        pre code {
+            background: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            color: #fff;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .badge-blue {
+            background: #3498db;
+        }
+
+        .badge-green {
+            background: #2ecc71;
+        }
+
+        .badge-orange {
+            background: #e67e22;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>E-Commerce Product Catalog Hierarchy</h1>
+        <p>Java Full Stack Capstone - Module C (PS-29)</p>
+    </div>
+
+    <div class="card">
+        <h2>1. Project Overview</h2>
+        <p>This project implements a polymorphic <strong>E-Commerce Product Catalog</strong>. It solves the problem of
+            extensive <code>instanceof</code> type checks in procedural code by introducing an abstract
+            <code>Product</code> class and specific subtypes (Physical, Digital, Subscription).</p>
+        <p>The goal is to calculate varying deliverability and tax rates polymorphically.</p>
+    </div>
+
+    <div class="card">
+        <h2>2. Object-Oriented Architecture</h2>
+        <p>The architecture leans heavily on <strong>Inheritance</strong>, <strong>Abstraction</strong>, and
+            <strong>Polymorphism</strong>.</p>
+
+        <h3>Abstraction & Inheritance</h3>
+        <p>The <code>Product</code> class acts as an abstract base. Subclasses inherit shared properties like
+            <code>id</code>, <code>name</code>, and <code>basePrice</code>, while defining their own specific properties
+            (e.g., <code>weightInKg</code> for physical goods).</p>
+
+        <h3>Polymorphism (The Hooks)</h3>
+        <p>Each subtype overrides specific abstract methods:</p>
+        <ul>
+            <li><code>calculateShippingCost(Region region)</code>: Meaningful for Physical, returns 0 for Digital and
+                Subscriptions.</li>
+            <li><code>calculateTax(Region region)</code>: Applies different percentages based on product classification
+                and region.</li>
+            <li><code>checkAvailability()</code>: Maps to stock quantities, server status, or subscription activity
+                flags depending on type.</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2>3. Business Rules</h2>
+        <table>
+            <tr>
+                <th>Product Category</th>
+                <th>Shipping Rules</th>
+                <th>Tax Rules</th>
+                <th>Availability Factor</th>
+            </tr>
+            <tr>
+                <td><span class="badge badge-blue">Physical</span></td>
+                <td>Calculated based on <code>weight * baseRate * regionMultiplier</code>.</td>
+                <td>Standard Tax (e.g., 8% Domestic, 15% International).</td>
+                <td>Inventory Stock &gt; 0</td>
+            </tr>
+            <tr>
+                <td><span class="badge badge-green">Digital</span></td>
+                <td>Always $0.00 (Instant Download).</td>
+                <td>Digital Services Tax (e.g., 5% Standard, 20% in Europe).</td>
+                <td>Server Online Status</td>
+            </tr>
+            <tr>
+                <td><span class="badge badge-orange">Subscription</span></td>
+                <td>Always $0.00.</td>
+                <td>Flat 10% Service Tax.</td>
+                <td>Subscription Active Flag</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2>4. Avoiding 'instanceof'</h2>
+        <p>By using the Template Method pattern in <code>Product.calculateTotalCost()</code>, the catalog iterates
+            purely on references of type <code>Product</code>. The JVM dynamically binds method calls to the specific
+            subclass instance at runtime.</p>
+        <pre><code>// Example of Polymorphism in CatalogService
+for (Product product : catalog) {
+    if (product.checkAvailability()) {
+        System.out.println("Shipping: " + product.calculateShippingCost(region));
+        System.out.println("Tax: " + product.calculateTax(region));
+    }
+}</code></pre>
+    </div>
+
+</body>
+
+</html>
