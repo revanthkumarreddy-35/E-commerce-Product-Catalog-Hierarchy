@@ -16,9 +16,7 @@
             background-color: #f9f9f9;
         }
 
-        h1,
-        h2,
-        h3 {
+        h1, h2, h3 {
             color: #2c3e50;
         }
 
@@ -50,8 +48,7 @@
             margin: 20px 0;
         }
 
-        th,
-        td {
+        th, td {
             padding: 12px;
             border: 1px solid #ddd;
             text-align: left;
@@ -96,17 +93,10 @@
             font-weight: bold;
         }
 
-        .badge-blue {
-            background: #3498db;
-        }
-
-        .badge-green {
-            background: #2ecc71;
-        }
-
-        .badge-orange {
-            background: #e67e22;
-        }
+        .badge-blue { background: #3498db; }
+        .badge-green { background: #2ecc71; }
+        .badge-orange { background: #e67e22; }
+        .badge-dark { background: #34495e; }
     </style>
 </head>
 
@@ -119,78 +109,81 @@
 
     <div class="card">
         <h2>1. Project Overview</h2>
-        <p>This project implements a polymorphic <strong>E-Commerce Product Catalog</strong>. It solves the problem of
-            extensive <code>instanceof</code> type checks in procedural code by introducing an abstract
-            <code>Product</code> class and specific subtypes (Physical, Digital, Subscription).</p>
-        <p>The goal is to calculate varying deliverability and tax rates polymorphically.</p>
+        <p>This project implements a polymorphic <strong>E-Commerce Product Catalog</strong>. It solves the problem of extensive <code>instanceof</code> type checks in procedural code by introducing an abstract <code>Product</code> class and specific subtypes (Physical, Digital, Subscription).</p>
+        <p>Recent updates have introduced <strong>Console Authentication</strong>, <strong>Role-Based Access Control</strong>, and <strong>CSV Data Persistence</strong> to make it a fully functional end-to-end application.</p>
     </div>
 
     <div class="card">
-        <h2>2. Object-Oriented Architecture</h2>
-        <p>The architecture leans heavily on <strong>Inheritance</strong>, <strong>Abstraction</strong>, and
-            <strong>Polymorphism</strong>.</p>
-
-        <h3>Abstraction & Inheritance</h3>
-        <p>The <code>Product</code> class acts as an abstract base. Subclasses inherit shared properties like
-            <code>id</code>, <code>name</code>, and <code>basePrice</code>, while defining their own specific properties
-            (e.g., <code>weightInKg</code> for physical goods).</p>
-
-        <h3>Polymorphism (The Hooks)</h3>
-        <p>Each subtype overrides specific abstract methods:</p>
+        <h2>2. Directory & File Structure</h2>
+        <p>Below is a clear breakdown of every folder and what the files inside them do:</p>
+        
+        <h3><span class="badge badge-dark">src/com/ecommerce/model/</span> (Domain Entities)</h3>
         <ul>
-            <li><code>calculateShippingCost(Region region)</code>: Meaningful for Physical, returns 0 for Digital and
-                Subscriptions.</li>
-            <li><code>calculateTax(Region region)</code>: Applies different percentages based on product classification
-                and region.</li>
-            <li><code>checkAvailability()</code>: Maps to stock quantities, server status, or subscription activity
-                flags depending on type.</li>
+            <li><code>Product.java</code>: Abstract base class defining shared properties and calculation hooks (shipping, tax).</li>
+            <li><code>PhysicalProduct.java</code>: Implements logic specifically for physical items (calculates shipping by weight).</li>
+            <li><code>DigitalProduct.java</code>: Implements logic for digital items (instant download, digital tax).</li>
+            <li><code>SubscriptionProduct.java</code>: Implements logic for subscriptions (recurring billing periods).</li>
+            <li><code>Order.java</code>: Model representing a customer's purchase, storing their tracking ID, product ID, and cost.</li>
+            <li><code>User.java</code>: Model representing a system user with a username, password, and role.</li>
+        </ul>
+
+        <h3><span class="badge badge-dark">src/com/ecommerce/model/enums/</span></h3>
+        <ul>
+            <li><code>Region.java</code>: Defines global regions (DOMESTIC, INTERNATIONAL, etc.) and shipping multipliers.</li>
+            <li><code>Role.java</code>: Defines the security roles for users (ADMIN, CUSTOMER).</li>
+        </ul>
+
+        <h3><span class="badge badge-dark">src/com/ecommerce/repository/</span> (Data Persistence)</h3>
+        <ul>
+            <li><code>ProductRepository.java</code>: Handles saving and reading products to/from <code>data/products.csv</code>. Smartly reconstructs child classes based on the "Type" column.</li>
+            <li><code>OrderRepository.java</code>: Handles saving and reading customer orders to/from <code>data/orders.csv</code>.</li>
+            <li><code>UserRepository.java</code>: Handles saving and reading registered user accounts to/from <code>data/users.csv</code>.</li>
+        </ul>
+
+        <h3><span class="badge badge-dark">src/com/ecommerce/service/</span> (Business Logic)</h3>
+        <ul>
+            <li><code>AuthService.java</code>: Manages login, registration, and verifies user credentials against the <code>UserRepository</code>.</li>
+            <li><code>CatalogService.java</code>: Manages adding products to the catalog and iterating through products polymorphically.</li>
+            <li><code>OrderService.java</code>: Manages creating new orders and restricting order tracking to the specific user who purchased it.</li>
+        </ul>
+
+        <h3><span class="badge badge-dark">src/com/ecommerce/util/</span></h3>
+        <ul>
+            <li><code>IdGenerator.java</code>: Parses existing CSV files to automatically generate the next sequential IDs (e.g. <code>P-001</code>, <code>TRK-001</code>).</li>
+        </ul>
+
+        <h3><span class="badge badge-dark">src/com/ecommerce/app/</span> (Entry Point)</h3>
+        <ul>
+            <li><code>EcommerceApp.java</code>: The main entry point. Contains the interactive console menus, login prompts, and routes users to either the Admin Panel or Customer Portal.</li>
+        </ul>
+
+        <h3><span class="badge badge-dark">data/</span></h3>
+        <ul>
+            <li><code>products.csv</code>, <code>orders.csv</code>, <code>users.csv</code>: Flat text files serving as our database storage for permanent data persistence.</li>
         </ul>
     </div>
 
     <div class="card">
-        <h2>3. Business Rules</h2>
-        <table>
-            <tr>
-                <th>Product Category</th>
-                <th>Shipping Rules</th>
-                <th>Tax Rules</th>
-                <th>Availability Factor</th>
-            </tr>
-            <tr>
-                <td><span class="badge badge-blue">Physical</span></td>
-                <td>Calculated based on <code>weight * baseRate * regionMultiplier</code>.</td>
-                <td>Standard Tax (e.g., 8% Domestic, 15% International).</td>
-                <td>Inventory Stock &gt; 0</td>
-            </tr>
-            <tr>
-                <td><span class="badge badge-green">Digital</span></td>
-                <td>Always $0.00 (Instant Download).</td>
-                <td>Digital Services Tax (e.g., 5% Standard, 20% in Europe).</td>
-                <td>Server Online Status</td>
-            </tr>
-            <tr>
-                <td><span class="badge badge-orange">Subscription</span></td>
-                <td>Always $0.00.</td>
-                <td>Flat 10% Service Tax.</td>
-                <td>Subscription Active Flag</td>
-            </tr>
-        </table>
+        <h2>3. Security & Access Control</h2>
+        <p>The application implements <strong>Role-Based Access Control (RBAC)</strong>. The system generates a default Admin (<code>admin</code> / <code>admin123</code>). New users register as Customers.</p>
+        <ul>
+            <li><strong>Admin Portal:</strong> Can add new inventory, view full catalogs, and test locations.</li>
+            <li><strong>Customer Portal:</strong> Can simulate purchases and track their own specific orders. Customers are blocked from viewing order histories belonging to other accounts.</li>
+        </ul>
     </div>
 
     <div class="card">
-        <h2>4. Avoiding 'instanceof'</h2>
-        <p>By using the Template Method pattern in <code>Product.calculateTotalCost()</code>, the catalog iterates
-            purely on references of type <code>Product</code>. The JVM dynamically binds method calls to the specific
-            subclass instance at runtime.</p>
-        <pre><code>// Example of Polymorphism in CatalogService
-for (Product product : catalog) {
-    if (product.checkAvailability()) {
-        System.out.println("Shipping: " + product.calculateShippingCost(region));
-        System.out.println("Tax: " + product.calculateTax(region));
-    }
+        <h2>4. Avoiding 'instanceof' with Polymorphism</h2>
+        <p>By using the Template Method pattern in <code>Product.calculateTotalCost(Region, String place)</code>, the catalog iterates purely on references of type <code>Product</code>. The JVM dynamically binds method calls to the specific subclass instance at runtime.</p>
+        <pre><code>// Example of Polymorphism in OrderService
+public Order createOrder(User user, Product product, Region region, String place) {
+    // We don't care if it's physical or digital, Java figures it out!
+    double totalCost = product.calculateTotalCost(region, place);
+    
+    Order newOrder = new Order(trackingId, user.getUsername(), product.getId(), region, place, totalCost, "Processing");
+    return newOrder;
 }</code></pre>
     </div>
 
 </body>
-
 </html>
