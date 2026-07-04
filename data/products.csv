@@ -1,37 +1,37 @@
-PHYSICAL,P-001,Wireless Headphones,150.00,0.5,50
-PHYSICAL,P-002,Ergonomic Office Chair,350.00,15.5,20
-PHYSICAL,P-003,Mechanical Keyboard,120.00,1.2,100
-PHYSICAL,P-004,Gaming Mouse,60.00,0.3,150
-PHYSICAL,P-005,4K Monitor,400.00,7.0,15
-PHYSICAL,P-006,Standing Desk,500.00,30.0,5
-PHYSICAL,P-007,Bluetooth Speaker,80.00,0.8,200
-PHYSICAL,P-008,Webcam 1080p,50.00,0.2,80
-PHYSICAL,P-009,External Hard Drive 2TB,90.00,0.4,60
-PHYSICAL,P-010,USB-C Hub,30.00,0.1,300
-PHYSICAL,P-011,Laptop Stand,45.00,0.9,120
-PHYSICAL,P-012,Noise Cancelling Earbuds,199.00,0.1,40
-PHYSICAL,P-013,Smartwatch,250.00,0.2,35
-PHYSICAL,P-014,Fitness Tracker,100.00,0.1,90
-PHYSICAL,P-015,Portable Power Bank,40.00,0.3,150
-PHYSICAL,P-016,Smartphone Gimbal,130.00,0.6,25
-PHYSICAL,P-017,Action Camera,299.00,0.4,18
-DIGITAL,D-001,Java Programming E-Book,29.99,https://dl.server.com/java,5.2,true
-DIGITAL,D-002,Cyberpunk Game Key,59.99,https://keys.server.com/cyber,0.1,true
-DIGITAL,D-003,Python Data Science Course,99.00,https://course.server.com/py,1500.0,true
-DIGITAL,D-004,Digital Marketing Masterclass,149.00,https://course.server.com/dm,2000.0,true
-DIGITAL,D-005,Indie Game - Pixel Quest,14.99,https://dl.server.com/pixel,300.0,true
-DIGITAL,D-006,Stock Photo Bundle,39.00,https://dl.server.com/photos,800.0,true
-DIGITAL,D-007,Video Editing Software License,199.00,https://dl.server.com/edit,1200.0,true
-DIGITAL,D-008,Music Production Plugins,89.00,https://dl.server.com/plugins,450.0,true
-DIGITAL,D-009,Web Template Pack,49.00,https://dl.server.com/templates,50.0,true
-DIGITAL,D-010,3D Model Asset Library,120.00,https://dl.server.com/3d,3000.0,true
-DIGITAL,D-011,Graphic Design Fonts,25.00,https://dl.server.com/fonts,15.0,true
-DIGITAL,D-012,E-Book - The Startup Guide,19.99,https://dl.server.com/startup,2.5,true
-DIGITAL,D-013,E-Book - Healthy Recipes,9.99,https://dl.server.com/recipes,8.0,true
-DIGITAL,D-014,Language Learning App Premium,60.00,https://dl.server.com/lang,120.0,true
-DIGITAL,D-015,Meditation Audio Tracks,15.00,https://dl.server.com/meditate,200.0,true
-DIGITAL,D-016,Cybersecurity Toolset,250.00,https://dl.server.com/security,500.0,true
-DIGITAL,D-017,Antivirus 1-Year Key,45.00,https://keys.server.com/av,0.1,true
+PHYSICAL,P-001,Wireless Headphones,150.00,0.50,50
+PHYSICAL,P-002,Ergonomic Office Chair,350.00,15.50,20
+PHYSICAL,P-003,Mechanical Keyboard,120.00,1.20,100
+PHYSICAL,P-004,Gaming Mouse,60.00,0.30,150
+PHYSICAL,P-005,4K Monitor,400.00,7.00,15
+PHYSICAL,P-006,Standing Desk,500.00,30.00,5
+PHYSICAL,P-007,Bluetooth Speaker,80.00,0.80,200
+PHYSICAL,P-008,Webcam 1080p,50.00,0.20,80
+PHYSICAL,P-009,External Hard Drive 2TB,90.00,0.40,60
+PHYSICAL,P-010,USB-C Hub,30.00,0.10,300
+PHYSICAL,P-011,Laptop Stand,45.00,0.90,120
+PHYSICAL,P-012,Noise Cancelling Earbuds,199.00,0.10,40
+PHYSICAL,P-013,Smartwatch,250.00,0.20,35
+PHYSICAL,P-014,Fitness Tracker,100.00,0.10,90
+PHYSICAL,P-015,Portable Power Bank,40.00,0.30,150
+PHYSICAL,P-016,Smartphone Gimbal,130.00,0.60,25
+PHYSICAL,P-017,Action Camera,299.00,0.40,18
+DIGITAL,D-001,Java Programming E-Book,29.99,https://dl.server.com/java,5.20,true
+DIGITAL,D-002,Cyberpunk Game Key,59.99,https://keys.server.com/cyber,0.10,true
+DIGITAL,D-003,Python Data Science Course,99.00,https://course.server.com/py,1500.00,true
+DIGITAL,D-004,Digital Marketing Masterclass,149.00,https://course.server.com/dm,2000.00,true
+DIGITAL,D-005,Indie Game - Pixel Quest,14.99,https://dl.server.com/pixel,300.00,true
+DIGITAL,D-006,Stock Photo Bundle,39.00,https://dl.server.com/photos,800.00,true
+DIGITAL,D-007,Video Editing Software License,199.00,https://dl.server.com/edit,1200.00,true
+DIGITAL,D-008,Music Production Plugins,89.00,https://dl.server.com/plugins,450.00,true
+DIGITAL,D-009,Web Template Pack,49.00,https://dl.server.com/templates,50.00,true
+DIGITAL,D-010,3D Model Asset Library,120.00,https://dl.server.com/3d,3000.00,true
+DIGITAL,D-011,Graphic Design Fonts,25.00,https://dl.server.com/fonts,15.00,true
+DIGITAL,D-012,E-Book - The Startup Guide,19.99,https://dl.server.com/startup,2.50,true
+DIGITAL,D-013,E-Book - Healthy Recipes,9.99,https://dl.server.com/recipes,8.00,true
+DIGITAL,D-014,Language Learning App Premium,60.00,https://dl.server.com/lang,120.00,true
+DIGITAL,D-015,Meditation Audio Tracks,15.00,https://dl.server.com/meditate,200.00,true
+DIGITAL,D-016,Cybersecurity Toolset,250.00,https://dl.server.com/security,500.00,true
+DIGITAL,D-017,Antivirus 1-Year Key,45.00,https://keys.server.com/av,0.10,true
 SUBSCRIPTION,S-001,Premium Video Streaming,14.99,Monthly,true
 SUBSCRIPTION,S-002,Cloud Storage 1TB,9.99,Monthly,true
 SUBSCRIPTION,S-003,Music Streaming Pro,12.99,Monthly,true
@@ -48,3 +48,4 @@ SUBSCRIPTION,S-013,SaaS CRM License,99.00,Monthly,true
 SUBSCRIPTION,S-014,Online Coding Platform,29.00,Monthly,true
 SUBSCRIPTION,S-015,Language Tutor Weekly,120.00,Monthly,true
 SUBSCRIPTION,S-016,Pet Toy Box,35.00,Monthly,true
+PHYSICAL,P-018,light,100.00,5.00,30
